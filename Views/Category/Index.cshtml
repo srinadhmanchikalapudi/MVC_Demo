@@ -1,0 +1,42 @@
+﻿
+@model List<Category>  // takes input from Category Controller Index
+
+<div class="container">
+    <div class="row pt-4">     @* Has 4 pixels *@
+        <div class="col-6">
+            <h2>Category List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a as asp-controller="Category" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i>&nbsp;&nbsp;Create New Category
+            </a>
+        </div>
+    </div>
+<table class = "table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Category Name</th>
+        <th>Display Order</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td>@obj.Name</td>
+                <td>@obj.DisplayOrder</td>
+                <td>
+                    <div class="w-75 btn-group" role="group">  @* What is a role? *@  
+                            <a asp-controller="Category" asp-action="Edit" class="btn btn-edit mx-2" asp-route-id="@obj.Id">
+                        <i class="bi bi-pencil-fill"></i>&nbsp;&nbsp;Edit
+                        </a>
+                        <a asp-controller="Category" asp-action="Delete" class="btn btn-delete mx-2" asp-route-id="@obj.Id">
+                                <i class="bi bi-trash"></i>&nbsp; &nbsp; Delete
+                        </a>
+                        </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

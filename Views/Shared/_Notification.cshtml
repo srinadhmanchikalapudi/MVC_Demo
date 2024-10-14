@@ -1,0 +1,70 @@
+﻿@if (TempData["Create"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript">
+
+        toastr.success('@TempData["Create"]');
+        
+    </script>
+   
+}
+@if (TempData["Update"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <style>
+
+            .toast-success.toast-update {
+                background-color: #007bff !important;
+                color: white !important;
+            }
+    </style>
+        <script type="text/javascript">
+
+            toastr.success('@TempData["Update"]', 'Updated', {
+            "progressBar": true,
+            "closeButton": true,
+            "positionClass": "toast-top-right",
+            "timeOut": 5000,
+            "extendedTimeOut": 1000,
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut",
+            "toastClass": "toast-success toast-update"
+            });
+    </script>
+    
+}
+
+@if (TempData["Delete"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+    <style>
+       
+        .toast-success.toast-delete {
+            background-color: #dc3545 !important; 
+            color: white !important; 
+        }
+    </style>
+    <script type="text/javascript">
+        
+        toastr.success('@TempData["Delete"]', 'Deleted', {
+            "progressBar": true,
+        "closeButton": true,
+        "positionClass": "toast-top-right",
+        "timeOut": 5000,
+        "extendedTimeOut": 1000,
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut",
+        "toastClass": "toast-success toast-delete"
+        });
+    </script>
+
+}
+
+
+
+

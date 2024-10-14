@@ -1,0 +1,42 @@
+﻿@model Category
+
+<form method="post">
+    @* <input asp-for="Id" hidden />  - To carry Id in hidden form on post when it is not loaded or when our PK is not named Id in some cases*@
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Update CATEGORY</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div> @* Extracts all the error messages at the top. Can also customize the area to display all the errors *@
+        <div class="mb-3">
+            <label asp-for="Name" class="p-0"></label>
+            <input asp-for="Name" class="form-control" />  @* asp-for gives a highlight for text box*@
+            @* <input type="text" class="form-control" />  *@
+            <span asp-validation-for="Name" class="text-danger"></span> @* To give the warnings while filling the page in red colour *@
+        </div>
+        <div class="mb-3">  
+            <label asp-for="DisplayOrder" class="p-0"></label>
+            <input asp-for="DisplayOrder" class="form-control" />
+            @* <input type="text" class="form-control" /> *@
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <button type="submit" class="btn btn-primary form-control ">Update</button>
+            </div>
+            <div class="col-6">
+                <a asp-controller="Category" asp-action="Index" class="btn btn-secondary form-control">Back to List</a>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+@section Scripts {
+    @* Client-side validation enables the client to check for error messages first at their end and then go for server side validations*@
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
